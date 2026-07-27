@@ -1,5 +1,16 @@
-*{
-  transition: color 0.3s ease, background 0.3s ease;
+* {
+  transition:
+    color 0.3s ease,
+    background 0.3s ease;
+}
+html {
+  scroll-behavior: smooth;
+}
+#services {
+  scroll-margin-top: 64px; /* Altere para a altura do seu menu fixo ou o espaço desejado */
+}
+#about {
+  scroll-margin-top: 30px; /* Altere para a altura do seu menu fixo ou o espaço desejado */
 }
 :root {
   --background: #f3ece2;
@@ -12,6 +23,8 @@
   --textAlt: #1c4ace;
   --textHover: #1c4ace;
   --bgBlue: #1c4ace;
+  --buttonHover: #1943b5;
+  --buttonHoverDois: rgba(0, 0, 0, 0.2);
   --bgLine: rgb(0, 0, 0, 0.8);
   --bgContrast: #1f1f1f;
   --border: rgb(255, 255, 255, 0.3);
@@ -34,6 +47,7 @@
   --textAlt: #1c4ace;
   --textHover: #1c4ace;
   --bgBlue: #1c4ace;
+  --buttonHoverDois: rgba(255, 255, 255, 0.2);
   --bgLine: rgb(255, 255, 255, 0.8);
   --bgContrast: #f1f1f1;
   --border: rgb(0, 0, 0, 0.3);
@@ -44,16 +58,18 @@
   --bgSquare: #3b3b3b;
   --gradientSection: linear-gradient(-45deg, #dddddd, #eeeeee);
 }
- /* Responsive mobile nav, animated links */
- #mobileNav {
-  transition: opacity 0.35s cubic-bezier(.4,0,.2,1);
+/* Responsive mobile nav, animated links */
+#mobileNav {
+  transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   opacity: 0;
 }
 #mobileNav.backdrop-blur-md {
   opacity: 1;
 }
 .mobile-nav-link {
-  transition: opacity 0.35s, transform 0.35s;
+  transition:
+    opacity 0.35s,
+    transform 0.35s;
 }
 .opacity-0 {
   opacity: 0 !important;
@@ -69,8 +85,39 @@
 }
 /* Hamburger anim to "X" via inline style updates */
 @media (min-width: 1280px) {
-  #nav-toggle {display: none !important;}
-  #mobileNav {display: none !important;}
+  #nav-toggle {
+    display: none !important;
+  }
+  #mobileNav {
+    display: none !important;
+  }
+}
+.header-cta:hover{
+  color: var(--textTres);
+  &.miniBall{
+    background: var(--bgLine);
+  }
+}
+
+.header-cta:hover{
+  color: var(--textTres);
+  .miniBall{
+    background: var(--bgLine);
+  }
+}
+.header-cta .underline-cta {
+  transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 90%;
+  /* Coloca o underline 3px abaixo do <a> */
+}
+.header-cta:hover .underline-cta,
+.header-cta:focus .underline-cta,
+.header-cta.group:hover .underline-cta {
+  width: 90%;
+  max-width: 90%;
 }
 /* 
   Proporções para redimensionamento fácil:
@@ -83,6 +130,7 @@
 
   Você pode diminuir ou aumentar todos esses valores conforme preferir.
 */
+
 .theme-switch {
   --toggle-size: 17px; /* era 20px, era 32px */
   --container-width: 3em; /* era 3.5em, era 5.625em */

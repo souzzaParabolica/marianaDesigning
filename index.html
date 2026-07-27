@@ -181,28 +181,28 @@
               Home
             </li>
           </a>
-          <a class="header-nav-item" href="">
+          <a class="header-nav-item" href="#work">
             <li
               class="text-(--text) font-medium text-sm hover:text-(--textHover) hover:font-semibold duration-300 ease"
             >
               Work
             </li>
           </a>
-          <a class="header-nav-item" href="">
+          <a class="header-nav-item" href="#services">
             <li
               class="text-(--text) font-medium text-sm hover:text-(--textHover) hover:font-semibold duration-300 ease"
             >
               Services
             </li>
           </a>
-          <a class="header-nav-item" href="">
+          <a class="header-nav-item" href="#about">
             <li
               class="text-(--text) font-medium text-sm hover:text-(--textHover) hover:font-semibold duration-300 ease"
             >
               About
             </li>
           </a>
-          <a class="header-nav-item" href="">
+          <a class="header-nav-item" href="#contact">
             <li
               class="text-(--text) font-medium text-sm hover:text-(--textHover) hover:font-semibold duration-300 ease"
             >
@@ -258,14 +258,19 @@
         </ul>
       </nav>
       <a
-        class="header-cta flex gap-[1rem] justify-center items-center uppercase text-(--textBold) font-semibold text-sm xl:static xl:ml-0 mt-4 xl:mt-0"
+        class="header-cta flex gap-[1rem] justify-center items-center uppercase text-(--textBold) font-semibold text-sm xl:static xl:ml-0 mt-4 xl:mt-0 relative group cursor-pointer hover:bg-(--bgBlue) rounded-xl px-6 overflow-visible"
         href=""
+        style="display: inline-flex"
       >
         <span
-          class="text-(--textAlt) bg-(--bgBlue) rounded-full w-3 h-3"
+          class="miniBall text-(--textAlt) bg-(--bgBlue) rounded-full w-3 h-3"
           data-lucide="circle"
         ></span>
-        avaliable for projects
+          avaliable for projects
+        <span
+          class="underline-cta pointer-events-none absolute left-1/2 bottom-[-5px] h-[2.5px] w-0 bg-(--bgBlue) rounded transition-all duration-300"
+          style="display: block; transform: translateX(-50%);"
+        ></span>
       </a>
     </header>
     <section
@@ -291,13 +296,13 @@
         </p>
         <div class="hero-buttons flex flex-col xl:flex-row gap-[1rem] justify-start items-center">
           <button
-            class="bg-(--bgBlue) text-(--textContrast) text-sm font-semibold flex justify-center items-center gap-[3rem] uppercase py-4 px-6 cursor-pointer hover:-translate-y-[1px] duration-200 ease"
+            class="bg-(--bgBlue) text-(--textContrast) text-sm font-semibold flex justify-center items-center gap-[3rem] uppercase py-4 px-6 cursor-pointer hover:bg-(--buttonHover)"
           >
             view my work
             <span data-lucide="move right" class="text-(--textContrast) w-6 h-6"></span>
           </button>
           <button
-            class="bg-transparent text-(--textBold) text-sm font-semibold flex justify-center items-center gap-[3rem] uppercase py-4 md:px-6 cursor-pointer hover:-translate-y-[1px] duration-200 ease"
+            class="bg-transparent text-(--textBold) text-sm font-semibold flex justify-center items-center gap-[3rem] uppercase py-4 md:px-6 cursor-pointer hover:bg-(--buttonHoverDois)"
           >
             download resume
             <span data-lucide="arrow-down-to-line" class="text-(--textBold) w-6 h-6"></span>
@@ -353,6 +358,7 @@
     </div>
     <main class="relative mt-[4rem] w-full">
       <div
+        id="services"
         class="firstSection flex flex-col xl:flex-row gap-[2rem] xl:gap-0 justify-between items-start px-[2rem] md:px-[4rem]"
       >
         <div class="flex flex-col gap-[1rem] justify-center items-start">
@@ -376,7 +382,7 @@
           and user-centered websites.
         </p>
         <button
-          class="py-2 px-8 border border-(--borderDois) uppercase flex justify-between items-center gap-[1rem] text-(--textBold) text-sm"
+          class="py-2 px-8 border border-(--borderDois) uppercase flex justify-between items-center gap-[1rem] text-(--textBold) text-sm cursor-pointer"
         >
           All services <span data-lucide="move right" class="text-(--textBold) h-7 w-7"></span>
         </button>
@@ -434,6 +440,7 @@
         </div>
       </div>
       <section
+        id="work"
         class="[background-image:var(--gradientSection)] my-[2rem] py-2rem relative w-full px-[2rem] md:px-[4rem] py-[2rem]"
       >
         <div
@@ -455,7 +462,7 @@
             </h2>
           </div>
           <button
-            class="py-2 px-8 uppercase flex justify-between items-center gap-[3rem] text-(--textContrast) text-sm"
+            class="py-2 px-8 uppercase flex justify-between items-center gap-[3rem] text-(--textContrast) text-sm cursor-pointer"
           >
             View all projects
             <span data-lucide="move right" class="text-(--textContrast) h-7 w-7"></span>
@@ -508,7 +515,7 @@
           </div>
         </div>
       </section>
-      <section class="relative px-[2rem] md:px-[4rem] pb-[2rem]">
+      <section id="about" class="relative px-[2rem] md:px-[4rem] pb-[2rem]">
         <div
           class="circle block absolute top-[85%] left-[-30%] xl:top-[50%] xl:left-[15%] bg-(--bgBlue) rounded-full w-[400px] h-[400px]"
         ></div>
@@ -630,6 +637,7 @@
       </div>
     </main>
     <footer
+      id="contact"
       class="footer-animated flex flex-col xl:flex-row gap-[4rem] xl:gap-0 justify-between items-stretch px-[2rem] md:px-[4rem] py-[2rem] w-full"
       style="opacity: 0; transform: translateY(40px)"
     >
@@ -704,7 +712,7 @@
     </footer>
     <button
       id="back-to-top"
-      class="fixed bottom-[3.5rem] md:bottom-[5rem] right-4 md:right-8 z-1000 w-10 h-10 rounded-full backdrop-blur-sm  border border-white/20 shadow-lg flex items-center justify-center transition-all duration-300 scale-90 bg-(--bgBlue)/30"
+      class="fixed bottom-[3.5rem] md:bottom-[5rem] right-4 md:right-8 z-1000 w-10 h-10 rounded-full backdrop-blur-sm border border-white/20 shadow-lg flex items-center justify-center transition-all duration-300 scale-90 bg-(--bgBlue)/30"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
