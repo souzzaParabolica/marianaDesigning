@@ -9,7 +9,7 @@ function initIntroAnimation() {
     .from('.header-logo', {
       autoAlpha: 0,
       x: -28,
-      filter: 'blur(10px)',
+      filter: 'blur(2px)',
       duration: 0.9,
     })
     .from(
@@ -17,7 +17,7 @@ function initIntroAnimation() {
       {
         autoAlpha: 0,
         y: -16,
-        filter: 'blur(6px)',
+        filter: 'blur(2px)',
         duration: 0.55,
         stagger: 0.07,
       },
@@ -28,7 +28,7 @@ function initIntroAnimation() {
       {
         autoAlpha: 0,
         x: 28,
-        filter: 'blur(10px)',
+        filter: 'blur(2px)',
         duration: 0.9,
       },
       '-=0.45'
@@ -38,7 +38,7 @@ function initIntroAnimation() {
       {
         autoAlpha: 0,
         y: 24,
-        filter: 'blur(8px)',
+        filter: 'blur(2px)',
         duration: 0.75,
       },
       '-=0.35'
@@ -48,7 +48,7 @@ function initIntroAnimation() {
       {
         autoAlpha: 0,
         y: 48,
-        filter: 'blur(12px)',
+        filter: 'blur(2px)',
         duration: 1.1,
       },
       '-=0.45'
@@ -58,7 +58,7 @@ function initIntroAnimation() {
       {
         autoAlpha: 0,
         y: 28,
-        filter: 'blur(8px)',
+        filter: 'blur(2px)',
         duration: 0.7,
       },
       '-=0.65'
@@ -69,7 +69,7 @@ function initIntroAnimation() {
       {
         autoAlpha: 0,
         scale: 0.88,
-        filter: 'blur(16px)',
+        filter: 'blur(2px)',
         duration: 1.2,
         ease: 'power2.out',
       },
@@ -102,7 +102,7 @@ function initScrollAnimations() {
   gsap.from('.divAnimada div', {
     autoAlpha: 0,
     x: -10,
-    filter: 'blur(5px)',
+    filter: 'blur(2px)',
     stagger: 0.1,
     scrollTrigger: {
       trigger: '.divAnimada',
@@ -116,7 +116,7 @@ function initScrollAnimations() {
   gsap.from('.firstSection div, .firstSection p, .firstSection button', {
     autoAlpha: 0,
     y: 10,
-    filter: 'blur(5px)',
+    filter: 'blur(2px)',
     duration: 0.5,
     stagger: 0.1,
     scrollTrigger: {
@@ -131,9 +131,9 @@ function initScrollAnimations() {
     gsap.from('.cards div', {
       autoAlpha: 0,
       y: 10,
-      filter: 'blur(5px)',
+      filter: 'blur(2px)',
       duration: 1,
-      stagger: 0.1,
+      stagger: 0.2,
       scrollTrigger: {
         trigger: '.cards',
         start: 'top 70%',
@@ -146,7 +146,7 @@ function initScrollAnimations() {
       gsap.from(card, {
         autoAlpha: 0,
         y: 20,
-        filter: 'blur(8px)',
+        // filter: 'blur(8px)',
         duration: 0.6,
         scrollTrigger: {
           trigger: card,
@@ -160,7 +160,7 @@ function initScrollAnimations() {
   gsap.from('.secondSection div, .secondSection p, .secondSection button', {
     autoAlpha: 0,
     y: 10,
-    filter: 'blur(5px)',
+    filter: 'blur(2px)',
     duration: 0.5,
     stagger: 0.1,
     scrollTrigger: {
@@ -175,7 +175,7 @@ function initScrollAnimations() {
     gsap.from('.cardDois div', {
       autoAlpha: 0,
       y: 10,
-      filter: 'blur(5px)',
+      filter: 'blur(2px)',
       duration: 0.8,
       stagger: 0.05,
       scrollTrigger: {
@@ -190,7 +190,7 @@ function initScrollAnimations() {
       gsap.from(card, {
         autoAlpha: 0,
         y: 10,
-        filter: 'blur(5px)',
+        // filter: 'blur(5px)',
         duration: 0.8,
         scrollTrigger: {
           trigger: card,
@@ -207,7 +207,7 @@ if (window.innerWidth >= 768) {
   gsap.from('.thirdSection .titulo, .thirdSection .contentDad .atual, .secondContentDad div ', {
     autoAlpha: 0,
     y: 10,
-    filter: 'blur(5px)',
+    filter: 'blur(2px)',
     duration: 1,
     stagger: 0.2,
     scrollTrigger: {
@@ -222,7 +222,7 @@ if (window.innerWidth >= 768) {
     gsap.from(el, {
       autoAlpha: 0,
       y: 10,
-      filter: 'blur(5px)',
+      // filter: 'blur(5px)',
       duration: 1,
       scrollTrigger: {
         trigger: el,
@@ -233,21 +233,38 @@ if (window.innerWidth >= 768) {
   });
 }
 
-gsap.from('.circle', {
-  autoAlpha: 0,
-  filter: 'blur(5px)',
-  scale: 0,
-  duration:1.5,
-  ease: "elastic.out(1,1)",
-  scrollTrigger: {
-    trigger: '.thirdSection',
-    start: 'top 40%',
-  },
-});
+if (window.innerWidth >= 768) {
+  // Animação da '.circle' para desktop/tablet
+  gsap.from('.circle', {
+    autoAlpha: 0,
+    filter: 'blur(2px)',
+    scale: 0,
+    duration: 1.5,
+    ease: "elastic.out(1,1)",
+    scrollTrigger: {
+      trigger: '.thirdSection',
+      start: 'top 40%',
+    },
+  });
+} else {
+  // Animação da '.circle' para mobile/celular
+  gsap.from('.circle', {
+    autoAlpha: 0,
+    // filter: 'blur(8px)',
+    scale: 0.8,
+    duration: 1,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: '.circle',
+      start: 'top 80%',
+      markers:false
+    },
+  });
+}
 
 gsap.from('.fourthSection', {
   autoAlpha: 0,
-  filter: 'blur(5px)',
+  filter: 'blur(2px)',
   y: 10,
   duration: 0.8,
   scrollTrigger: {
@@ -260,7 +277,7 @@ if (window.innerWidth >= 1024) {
   // Animação para desktop: todos juntos com stagger
   gsap.from('.feedbacks div', {
     autoAlpha: 0,
-    filter: 'blur(5px)',
+    filter: 'blur(2px)',
     scale: 0.95,
     duration: 0.7,
     stagger: 0.1,
@@ -275,7 +292,7 @@ if (window.innerWidth >= 1024) {
   document.querySelectorAll('.feedbacks div').forEach(el => {
     gsap.from(el, {
       autoAlpha: 0,
-      filter: 'blur(5px)',
+      // filter: 'blur(5px)',
       scale: 0.95,
       duration: 0.7,
       scrollTrigger: {
