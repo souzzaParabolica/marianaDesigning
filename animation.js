@@ -237,7 +237,7 @@ gsap.from('.circle', {
   autoAlpha: 0,
   filter: 'blur(5px)',
   scale: 0,
-  duration:1,
+  duration:1.5,
   ease: "elastic.out(1,1)",
   scrollTrigger: {
     trigger: '.thirdSection',

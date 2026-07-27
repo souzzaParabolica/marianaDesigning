@@ -1,4 +1,6 @@
-
+*{
+  transition: color 0.3s ease, background 0.3s ease;
+}
 :root {
   --background: #f3ece2;
   --text: rgb(0, 0, 0, 0.7);
