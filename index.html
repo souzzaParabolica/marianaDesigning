@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="pt-br" class="overflow-x-hidden">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>MARIANA - DESIGNING</title>
+  </head>
+  <body class="bg-(--background) font-[inter] relative w-[100%]">
+    <svg class="absolute w-[0px] h-[0px] overflow-hidden" aria-hidden="true">
+      <defs>
+        <filter id="sketchy" x="-10%" y="-10%" width="120%" height="120%">
+          <feTurbulence
+            type="turbulence"
+            baseFrequency="0.035 0.042"
+            numOctaves="4"
+            result="noise"
+            seed="42"
+          ></feTurbulence>
+          <feDisplacementMap
+            in="SourceGraphic"
+            in2="noise"
+            scale="4.5"
+            xChannelSelector="R"
+            yChannelSelector="G"
+          ></feDisplacementMap>
+        </filter>
+        <filter id="sketchy-sm" x="-18%" y="-18%" width="136%" height="136%">
+          <feTurbulence
+            type="turbulence"
+            baseFrequency="0.06"
+            numOctaves="3"
+            result="noise"
+            seed="7"
+          ></feTurbulence>
+          <feDisplacementMap
+            in="SourceGraphic"
+            in2="noise"
+            scale="2.5"
+            xChannelSelector="R"
+            yChannelSelector="G"
+          ></feDisplacementMap>
+        </filter>
+      </defs>
+    </svg>
+
+    <label class="theme-switch fixed bottom-5 right-5 md:bottom-10 md:right-10 z-100">
+      <input id="mudarTema" class="theme-switch__checkbox" type="checkbox" />
+      <div class="theme-switch__container">
+        <div class="theme-switch__clouds"></div>
+        <div class="theme-switch__stars-container">
+          <svg fill="none" viewBox="0 0 144 55" xmlns="http://www.w3.org/2000/svg">
+            <path
+              fill="currentColor"
+              d="M135.831 3.00688C135.055 3.85027 134.111 4.29946 133 4.35447C134.111 4.40947 135.055 4.85867 135.831 5.71123C136.607 6.55462 136.996 7.56303 136.996 8.72727C136.996 7.95722 137.172 7.25134 137.525 6.59129C137.886 5.93124 138.372 5.39954 138.98 5.00535C139.598 4.60199 140.268 4.39114 141 4.35447C139.88 4.2903 138.936 3.85027 138.16 3.00688C137.384 2.16348 136.996 1.16425 136.996 0C136.996 1.16425 136.607 2.16348 135.831 3.00688ZM31 23.3545C32.1114 23.2995 33.0551 22.8503 33.8313 22.0069C34.6075 21.1635 34.9956 20.1642 34.9956 19C34.9956 20.1642 35.3837 21.1635 36.1599 22.0069C36.9361 22.8503 37.8798 23.2903 39 23.3545C38.2679 23.3911 37.5976 23.602 36.9802 24.0053C36.3716 24.3995 35.8864 24.9312 35.5248 25.5913C35.172 26.2513 34.9956 26.9572 34.9956 27.7273C34.9956 26.563 34.6075 25.5546 33.8313 24.7112C33.0551 23.8587 32.1114 23.4095 31 23.3545ZM0 36.3545C1.11136 36.2995 2.05513 35.8503 2.83131 35.0069C3.6075 34.1635 3.99559 33.1642 3.99559 32C3.99559 33.1642 4.38368 34.1635 5.15987 35.0069C5.93605 35.8503 6.87982 36.2903 8 36.3545C7.26792 36.3911 6.59757 36.602 5.98015 37.0053C5.37155 37.3995 4.88644 37.9312 4.52481 38.5913C4.172 39.2513 3.99559 39.9572 3.99559 40.7273C3.99559 39.563 3.6075 38.5546 2.83131 37.7112C2.05513 36.8587 1.11136 36.4095 0 36.3545ZM56.8313 24.0069C56.0551 24.8503 55.1114 25.2995 54 25.3545C55.1114 25.4095 56.0551 25.8587 56.8313 26.7112C57.6075 27.5546 57.9956 28.563 57.9956 29.7273C57.9956 28.9572 58.172 28.2513 58.5248 27.5913C58.8864 26.9312 59.3716 26.3995 59.9802 26.0053C60.5976 25.602 61.2679 25.3911 62 25.3545C60.8798 25.2903 59.9361 24.8503 59.1599 24.0069C58.3837 23.1635 57.9956 22.1642 57.9956 21C57.9956 22.1642 57.6075 23.1635 56.8313 24.0069ZM81 25.3545C82.1114 25.2995 83.0551 24.8503 83.8313 24.0069C84.6075 23.1635 84.9956 22.1642 84.9956 21C84.9956 22.1642 85.3837 23.1635 86.1599 24.0069C86.9361 24.8503 87.8798 25.2903 89 25.3545C88.2679 25.3911 87.5976 25.602 86.9802 26.0053C86.3716 26.3995 85.8864 26.9312 85.5248 27.5913C85.172 28.2513 84.9956 28.9572 84.9956 29.7273C84.9956 28.563 84.6075 27.5546 83.8313 26.7112C83.0551 25.8587 82.1114 25.4095 81 25.3545ZM136 36.3545C137.111 36.2995 138.055 35.8503 138.831 35.0069C139.607 34.1635 139.996 33.1642 139.996 32C139.996 33.1642 140.384 34.1635 141.16 35.0069C141.936 35.8503 142.88 36.2903 144 36.3545C143.268 36.3911 142.598 36.602 141.98 37.0053C141.372 37.3995 140.886 37.9312 140.525 38.5913C140.172 39.2513 139.996 39.9572 139.996 40.7273C139.996 39.563 139.607 38.5546 138.831 37.7112C138.055 36.8587 137.111 36.4095 136 36.3545ZM101.831 49.0069C101.055 49.8503 100.111 50.2995 99 50.3545C100.111 50.4095 101.055 50.8587 101.831 51.7112C102.607 52.5546 102.996 53.563 102.996 54.7273C102.996 53.9572 103.172 53.2513 103.525 52.5913C103.886 51.9312 104.372 51.3995 104.98 51.0053C105.598 50.602 106.268 50.3911 107 50.3545C105.88 50.2903 104.936 49.8503 104.16 49.0069C103.384 48.1635 102.996 47.1642 102.996 46C102.996 47.1642 102.607 48.1635 101.831 49.0069Z"
+              clip-rule="evenodd"
+              fill-rule="evenodd"
+            ></path>
+          </svg>
+        </div>
+        <div class="theme-switch__circle-container">
+          <div class="theme-switch__sun-moon-container">
+            <div class="theme-switch__moon">
+              <div class="theme-switch__spot"></div>
+              <div class="theme-switch__spot"></div>
+              <div class="theme-switch__spot"></div>
+            </div>
+          </div>
+        </div>
+        <div class="theme-switch__shooting-star"></div>
+        <div class="theme-switch__shooting-star-2"></div>
+        <div class="theme-switch__meteor"></div>
+        <div class="theme-switch__stars-cluster">
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+        </div>
+        <div class="theme-switch__aurora"></div>
+        <div class="theme-switch__comets">
+          <div class="comet"></div>
+          <div class="comet"></div>
+        </div>
+      </div>
+    </label>
+
+    <header class="site-header flex flex-col justify-center items-start md:flex-row md:justify-between md:items-center px-[2rem] md:px-[4rem] pt-[2rem] relative">
+      <h1 class="header-logo uppercase text-(--textBold) font-bold text-2xl leading-6 flex-shrink-0 z-30">
+        Mariana <br />
+        Napolitani
+      </h1>
+      <!-- Mobile Menu Button -->
+      <button
+        id="nav-toggle"
+        class="xl:hidden absolute top-8 right-8 flex flex-col justify-center items-center z-40"
+        aria-label="Abrir menu"
+        type="button"
+      >
+        <span class="hamburger-bar block w-7 h-1 bg-(--textBold) mb-1 rounded transition-all duration-300"></span>
+        <span class="hamburger-bar block w-7 h-1 bg-(--textBold) mb-1 rounded transition-all duration-300"></span>
+        <span class="hamburger-bar block w-7 h-1 bg-(--textBold) rounded transition-all duration-300"></span>
+      </button>
+      <!-- Desktop nav -->
+      <nav class="relative hidden xl:block">
+        <ul class="flex justify-center items-center gap-[2rem] uppercase">
+          <a class="header-nav-item" href="">
+            <li class="text-(--text) font-medium text-sm hover:text-(--textHover) hover:font-semibold duration-300 ease">
+              Home
+            </li>
+          </a>
+          <a class="header-nav-item" href="">
+            <li class="text-(--text) font-medium text-sm hover:text-(--textHover) hover:font-semibold duration-300 ease">
+              Work
+            </li>
+          </a>
+          <a class="header-nav-item" href="">
+            <li class="text-(--text) font-medium text-sm hover:text-(--textHover) hover:font-semibold duration-300 ease">
+              Services
+            </li>
+          </a>
+          <a class="header-nav-item" href="">
+            <li class="text-(--text) font-medium text-sm hover:text-(--textHover) hover:font-semibold duration-300 ease">
+              About
+            </li>
+          </a>
+          <a class="header-nav-item" href="">
+            <li class="text-(--text) font-medium text-sm hover:text-(--textHover) hover:font-semibold duration-300 ease">
+              Contact
+            </li>
+          </a>
+        </ul>
+      </nav>
+      <!-- Mobile nav, with animated classes -->
+      <nav id="mobileNav" class="xl:hidden hidden fixed inset-0 bg-(--background) bg-opacity-90 shadow-lg z-30 transition-all duration-400 ease-in-out flex justify-center items-center">
+        <ul id="mobileNavList" class="flex flex-col w-full justify-center items-center gap-2 p-4 uppercase">
+          <a class="header-nav-item block" href="">
+            <li class="w-full py-2 text-(--text) font-medium text-base hover:text-(--textHover) hover:font-semibold duration-300 ease mobile-nav-link opacity-0 translate-y-6">
+              Home
+            </li>
+          </a>
+          <a class="header-nav-item block" href="">
+            <li class="w-full py-2 text-(--text) font-medium text-base hover:text-(--textHover) hover:font-semibold duration-300 ease mobile-nav-link opacity-0 translate-y-6">
+              Work
+            </li>
+          </a>
+          <a class="header-nav-item block" href="">
+            <li class="w-full py-2 text-(--text) font-medium text-base hover:text-(--textHover) hover:font-semibold duration-300 ease mobile-nav-link opacity-0 translate-y-6">
+              Services
+            </li>
+          </a>
+          <a class="header-nav-item block" href="">
+            <li class="w-full py-2 text-(--text) font-medium text-base hover:text-(--textHover) hover:font-semibold duration-300 ease mobile-nav-link opacity-0 translate-y-6">
+              About
+            </li>
+          </a>
+          <a class="header-nav-item block" href="">
+            <li class="w-full py-2 text-(--text) font-medium text-base hover:text-(--textHover) hover:font-semibold duration-300 ease mobile-nav-link opacity-0 translate-y-6">
+              Contact
+            </li>
+          </a>
+        </ul>
+      </nav>
+      <a
+        class="header-cta flex gap-[1rem] justify-center items-center uppercase text-(--textBold) font-semibold text-sm xl:static xl:ml-0 mt-4 xl:mt-0"
+        href=""
+      >
+        <span
+          class="text-(--textAlt) bg-(--bgBlue) rounded-full w-3 h-3"
+          data-lucide="circle"
+        ></span>
+        avaliable for projects
+      </a>
+    </header>
+    <section
+      class="my-[4rem] hero relative w-full min-h-[100dvh] flex flex-col xl:flex-row justify-center items-stretch gap-[4rem] px-[2rem] md:px-[4rem]"
+    >
+      <div class="hero-content flex flex-col justify-center items-start gap-[1.4rem] flex-1">
+        <p
+          class="hero-tagline flex gap-[1rem] justify-center items-start uppercase text-(--text) font-semibold leading-5 text-sm"
+        >
+          <span
+            class="text-(--textAlt) bg-(--bgBlue) rounded-full w-3 h-3"
+            data-lucide="circle"
+          ></span>
+          web designer <br />
+          based in latina america
+        </p>
+        <h2 class="hero-title text-(--textBold) text-3xl xl:text-8xl font-bold uppercase">
+          Designing <span class="text-(--textAlt)">digital</span> experiences
+        </h2>
+        <p class="hero-desc text-(--text) font-semibold">
+          I create modern, strategic and high-converting websites that elevate brands and deliever
+          real results.
+        </p>
+        <div class="hero-buttons flex flex-col xl:flex-row gap-[1rem] justify-start items-center">
+          <button
+            class="bg-(--bgBlue) text-(--textContrast) text-sm font-semibold flex justify-center items-center gap-[3rem] uppercase py-4 px-6 cursor-pointer hover:-translate-y-[1px] duration-200 ease"
+          >
+            view my work
+            <span data-lucide="move right" class="text-(--textContrast) w-6 h-6"></span>
+          </button>
+          <button
+            class="bg-transparent text-(--textBold) text-sm font-semibold flex justify-center items-center gap-[3rem] uppercase py-4 md:px-6 cursor-pointer hover:-translate-y-[1px] duration-200 ease"
+          >
+            download resume
+            <span data-lucide="arrow-down-to-line" class="text-(--textBold) w-6 h-6"></span>
+          </button>
+        </div>
+      </div>
+      <div class="hero-visual flex-1 bg-(--bgBlue) rounded-full"></div>
+      <div
+        class="hidden hero-side absolute top-[50%] right-[-10%] z-99 xl:flex justify-center items-center gap-[1rem] rotate-[-90deg]"
+      >
+        <span class="w-[150px] h-[1px] bg-(--bgLine)"></span>
+        <p class="text-(--text) font-semibold uppercase text-sm">avaliable for works</p>
+      </div>
+    </section>
+    <div
+      class="divAnimada bg-(--bgContrast) flex flex-col gap-[3rem] xl:gap-0 xl:flex-row justify-center items-center py-8 px-10"
+    >
+      <di v
+        class="flex justify-start md:justify-center items-start flex-1 xl:border-r border-(--border) "
+      >
+        <span data-lucide="globe" class="text-(--textContrast) w-7 h-7"></span>
+        <div class="flex flex-col justify-center items-center gap-[1rem]">
+          <p class="text-(--textContrast) text-2xl font-semibold">6+</p>
+          <p class="text-(--textContrast) text-sm font-light">Years Experience</p>
+        </div>
+      </di>
+      <div
+        class="flex justify-start md:justify-center items-start flex-1 xl:border-r border-(--border) "
+      >
+        <span data-lucide="astroid" class="text-(--textContrast) w-7 h-7"></span>
+        <div class="flex flex-col justify-center items-center gap-[1rem]">
+          <p class="text-(--textContrast) text-2xl font-semibold">120+</p>
+          <p class="text-(--textContrast) text-sm font-light">Projects Completed</p>
+        </div>
+      </div>
+      <div
+        class="flex justify-start md:justify-center items-start flex-1 xl:border-r border-(--border) "
+      >
+        <span data-lucide="smile" class="text-(--textContrast) w-7 h-7"></span>
+        <div class="flex flex-col justify-center items-center gap-[1rem]">
+          <p class="text-(--textContrast) text-2xl font-semibold">50+</p>
+          <p class="text-(--textContrast) text-sm font-light">Happy Clients</p>
+        </div>
+      </div>
+      <div class="flex justify-center items-start flex-1 ">
+        <span data-lucide="clock" class="text-(--textContrast) w-7 h-7"></span>
+        <div class="flex flex-col justify-center items-center gap-[1rem]">
+          <p class="text-(--textContrast) text-2xl font-semibold">24/7</p>
+          <p class="text-(--textContrast) text-sm font-light">Support Avaliable</p>
+        </div>
+      </div>
+    </div>
+    <main class="relative mt-[4rem] w-full">
+      <div
+        class="firstSection flex flex-col xl:flex-row gap-[2rem] xl:gap-0 justify-between items-start px-[2rem] md:px-[4rem]"
+      >
+        <div class="flex flex-col gap-[1rem] justify-center items-start">
+          <p
+            class="flex gap-[1rem] justify-center items-start uppercase text-(--text) font-semibold leading-5 text-sm"
+          >
+            <span
+              class="text-(--textAlt) bg-(--bgBlue) rounded-full w-3 h-3"
+              data-lucide="circle"
+            ></span>
+            what I do
+          </p>
+          <h2 class="text-(--textBold) text-4xl font-bold uppercase">
+            Expertise & <br  class="hidden md:block"/>
+            services
+          </h2>
+        </div>
+        <p class="text-sm text-(--text) font-medium">
+          I help brands grow by crafting <br  class="hidden md:block"/>
+          visually stunning, functional <br  class="hidden md:block"/>
+          and user-centered websites.
+        </p>
+        <button
+          class="py-2 px-8 border border-(--borderDois) uppercase flex justify-between items-center gap-[1rem] text-(--textBold) text-sm"
+        >
+          All services <span data-lucide="move right" class="text-(--textBold) h-7 w-7"></span>
+        </button>
+      </div>
+      <div
+        class="mt-[4rem] cards flex flex-col xl:flex-row w-full justify-center items-stretch gap-[1rem] px-[2rem] md:px-[4rem]"
+      >
+        <div
+          class="card flex flex-col justify-center items-start gap-[1.4rem] p-8 border-2 border-(--borderTres)"
+        >
+          <span data-lucide="monitor" class="text-(--textAlt) w-[50px] h-[50px]"></span>
+          <h3 class="text-(--textBold) text-xl font-bold uppercase">web design</h3>
+          <p class="text-sm text-(--text) font-medium">
+            Clean, modern and high-converting website design tailored to your brand
+          </p>
+        </div>
+        <div
+          class="card flex flex-col justify-center items-start gap-[1.4rem] p-8 border-2 border-(--borderTres)"
+        >
+          <span data-lucide="smartphone" class="text-(--textAlt) w-[50px] h-[50px]"></span>
+          <h3 class="text-(--textBold) text-xl font-bold uppercase">ui/ux design</h3>
+          <p class="text-sm text-(--text) font-medium">
+            Intuitive user experiences that engage visitors and drive results.
+          </p>
+        </div>
+        <div
+          class="card flex flex-col justify-center items-start gap-[1.4rem] p-8 border-2 border-(--borderTres)"
+        >
+          <span data-lucide="code" class="text-(--textAlt) w-[50px] h-[50px]"></span>
+          <h3 class="text-(--textBold) text-xl font-bold uppercase">web development</h3>
+          <p class="text-sm text-(--text) font-medium">
+            Responsive, fast and SEO-friendly websites built with precision.
+          </p>
+        </div>
+        <div
+          class="card flex flex-col justify-center items-start gap-[1.4rem] p-8 border-2 border-(--borderTres)"
+        >
+          <span data-lucide="drafting-compass" class="text-(--textAlt) w-[50px] h-[50px]"></span>
+          <h3 class="text-(--textBold) text-xl font-bold uppercase">
+            Branding & <br />
+            identity
+          </h3>
+          <p class="text-sm text-(--text) font-medium">
+            visual identity systems that build recognition and trust.
+          </p>
+        </div>
+        <div
+          class="card flex flex-col justify-center items-start gap-[1.4rem] p-8 border-2 border-(--borderTres)"
+        >
+          <span data-lucide="chart-column" class="text-(--textAlt) w-[50px] h-[50px]"></span>
+          <h3 class="text-(--textBold) text-xl font-bold uppercase">SEO & performance</h3>
+          <p class="text-sm text-(--text) font-medium">
+            Optimized websites designed to rank higher and convert better.
+          </p>
+        </div>
+      </div>
+      <section
+        class="[background-image:var(--gradientSection)] my-[2rem] py-2rem relative w-full px-[2rem] md:px-[4rem] py-[2rem]"
+      >
+        <div
+          class="secondSection flex flex-col xl:flex-row gap-[4rem] xl:gap-0 justify-between items-center w-full"
+        >
+          <div class="flex flex-col gap-[1rem] justify-center items-start">
+            <p
+              class="flex gap-[1rem] justify-center items-center uppercase text-(--textDois) font-semibold leading-5 text-sm"
+            >
+              <span
+                class="text-(--textAlt) bg-(--bgBlue) rounded-full w-3 h-3"
+                data-lucide="circle"
+              ></span>
+              featured work
+            </p>
+            <h2 class="text-(--textContrast) text-4xl font-bold uppercase">
+              selected <br />
+              projects
+            </h2>
+          </div>
+          <button
+            class="py-2 px-8 uppercase flex justify-between items-center gap-[3rem] text-(--textContrast) text-sm"
+          >
+            View all projects
+            <span data-lucide="move right" class="text-(--textContrast) h-7 w-7"></span>
+          </button>
+        </div>
+        <div
+          class="cardDois mt-[4rem] flex flex-col xl:flex-row justify-between items-stretch w-full gap-[2rem]"
+        >
+          <div class="flex flex-col justify-center items-center gap-[1rem] flex-1">
+            <div class="square w-full h-[220px] border-2 border-(--border) bg-(--bgSquare)"></div>
+            <button class="w-full flex justify-between items-end">
+              <div class="flex flex-col justify-center items-start gap-1">
+                <p class="font-semibold uppercase text-xl text-(--textContrast) font-semibold">
+                  nexora studio
+                </p>
+                <p class="font-semibold uppercase text-sm text-(--textContrast) font-medium">
+                  Creative Agency Website
+                </p>
+              </div>
+              <span data-lucide="move right" class="text-(--textContrast) w-6 h-6"></span>
+            </button>
+          </div>
+          <div class="flex flex-col justify-center items-center gap-[1rem] flex-1">
+            <div class="square w-full h-[220px] border-2 border-(--border) bg-(--bgSquare)"></div>
+            <button class="w-full flex justify-between items-end">
+              <div class="flex flex-col justify-center items-start gap-1">
+                <p class="font-semibold uppercase text-xl text-(--textContrast) font-semibold">
+                  lumiére
+                </p>
+                <p class="font-semibold uppercase text-sm text-(--textContrast) font-medium">
+                  skincare brand website
+                </p>
+              </div>
+              <span data-lucide="move right" class="text-(--textContrast) w-6 h-6"></span>
+            </button>
+          </div>
+          <div class="flex flex-col justify-center items-center gap-[1rem] flex-1">
+            <div class="square w-full h-[220px] border-2 border-(--border) bg-(--bgSquare)"></div>
+            <button class="w-full flex justify-between items-end">
+              <div class="flex flex-col justify-center items-start gap-1">
+                <p class="font-semibold uppercase text-xl text-(--textContrast) font-semibold">
+                  finance flow
+                </p>
+                <p class="font-semibold uppercase text-sm text-(--textContrast) font-medium">
+                  fintech dashboard ui/ux
+                </p>
+              </div>
+              <span data-lucide="move right" class="text-(--textContrast) w-6 h-6"></span>
+            </button>
+          </div>
+        </div>
+      </section>
+      <section class="relative px-[2rem] md:px-[4rem] pb-[2rem]">
+        <div
+          class="circle block absolute top-[85%] left-[-30%] xl:top-[50%] xl:left-[15%] bg-(--bgBlue) rounded-full w-[400px] h-[400px]"
+        ></div>
+        <div
+          class="thirdSection flex flex-col xl:flex-row gap-[4rem] xl:gap-0 justify-between items-start"
+        >
+          <div class="titulo flex flex-col gap-[1rem] justify-center items-start flex-1">
+            <p
+              class="flex gap-[1rem] justify-center items-center uppercase text-(--text) font-semibold leading-5 text-sm"
+            >
+              <span
+                class="text-(--textAlt) bg-(--bgBlue) rounded-full w-3 h-3"
+                data-lucide="circle"
+              ></span>
+              experience
+            </p>
+            <h2 class="text-(--textBold) text-4xl font-bold uppercase">
+              work <br />
+              experience
+            </h2>
+          </div>
+          <div class="contentDad flex flex-col justify-center items-center gap-[1.5rem] flex-1">
+            <div
+              class="atual flex flex-col justify-center items-start gap-[1rem] p-6 border-2 border-(--borderCinco) flex-1"
+            >
+              <p class="text-sm font-normal text-(--textAlt) uppercase">2022 - present</p>
+              <h3 class="text-xl font-semibold text-(--textBold) uppercase">
+                FREELANCE WEB DESIGNER
+              </h3>
+              <p class="text-sm font-normal text-(--textQuatro)">
+                Working with startups and brands worldwide to create impactful digital experiences.
+              </p>
+            </div>
+
+            <div
+              class="secondContentDad flex flex-col xl:flex-row justify-center items-center gap-[1.5rem]"
+            >
+              <div
+                class="secondContent flex flex-col justify-center items-start gap-[1rem] p-6 border-2 border-(--borderCinco) flex-1"
+              >
+                <p class="text-sm font-normal text-(--textAlt) uppercase">2020 - 2022</p>
+                <h3 class="text-xl font-semibold text-(--textBold) uppercase">
+                  senior ui/ux designer
+                </h3>
+                <p class="text-sm font-normal text-(--textQuatro)">
+                  Designed user interfaces and experiences fot SaaS platforms and enterprise
+                  solutions.
+                </p>
+              </div>
+
+              <div
+                class="thirdContent flex flex-col justify-center items-start gap-[1rem] p-6 border-2 border-(--borderCinco) flex-1"
+              >
+                <p class="text-sm font-normal text-(--textAlt) uppercase">2018 - 2022</p>
+                <h3 class="text-xl font-semibold text-(--textBold) uppercase">web designer</h3>
+                <p class="text-sm font-normal text-(--textQuatro)">
+                  Created modern websites and landing pages for agencies and local businesses.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div
+        class="[background-image:var(--gradientSection)] feedbackSection relative z-10 px-[2rem] md:px-[4rem] py-[2rem] flex flex-col xl:flex-row gap-[3rem] xl:gap-0 justify-center items-start"
+      >
+        <div class="fourthSection flex flex-col gap-[1rem] justify-center items-start flex-1">
+          <p
+            class="flex gap-[1rem] justify-center items-center uppercase text-(--textDois) font-semibold leading-5 text-sm"
+          >
+            <span
+              class="text-(--textAlt) bg-(--bgBlue) rounded-full w-3 h-3"
+              data-lucide="circle"
+            ></span>
+            testimonials
+          </p>
+          <h2 class="text-(--textContrast) text-4xl font-bold uppercase">
+            clients <br />
+            love my work
+          </h2>
+        </div>
+        <div
+          class="feedbacks flex flex-col xl:flex-row justify-center items-center gap-[2rem] flex-1"
+        >
+          <div class="flex justify-center items-start gap-[1rem]">
+            <span data-lucide="quote" class="text-(--textAlt) w-[120px] h-[120px]"></span>
+            <div class="flex flex-col justify-center items-start mt-[5rem]">
+              <p class="text-sm text-(--textDois) font-normal mt-[1rem]">
+                Mariana is an exceptional designer. She understood our brand percectly and delivered
+                beyond expectations.
+              </p>
+              <p class="text-sm text-(--textDois) font-normal mt-[0.5rem]">- Daniel K.</p>
+              <p class="text-sm text-(--textDois) font-normal ml-[10px]">CEO, Nevora Studio</p>
+            </div>
+          </div>
+          <div class="flex justify-center items-start gap-[1rem]">
+            <span data-lucide="quote" class="text-(--textAlt) w-[120px] h-[120px]"></span>
+            <div class="flex flex-col justify-center items-start mt-[5rem]">
+              <p class="text-sm text-(--textDois) font-normal mt-[1rem]">
+                Mariana is an exceptional designer. She understood our brand percectly and delivered
+                beyond expectations.
+              </p>
+              <p class="text-sm text-(--textDois) font-normal mt-[0.5rem]">- Daniel K.</p>
+              <p class="text-sm text-(--textDois) font-normal ml-[10px]">CEO, Nevora Studio</p>
+            </div>
+          </div>
+          <div class="flex justify-center items-start gap-[1rem]">
+            <span data-lucide="quote" class="text-(--textAlt) w-[120px] h-[120px]"></span>
+            <div class="flex flex-col justify-center items-start mt-[5rem]">
+              <p class="text-sm text-(--textDois) font-normal mt-[1rem]">
+                Mariana is an exceptional designer. She understood our brand percectly and delivered
+                beyond expectations.
+              </p>
+              <p class="text-sm text-(--textDois) font-normal mt-[0.5rem]">- Daniel K.</p>
+              <p class="text-sm text-(--textDois) font-normal ml-[10px]">CEO, Nevora Studio</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer
+      class="footer-animated flex flex-col xl:flex-row gap-[4rem] xl:gap-0 justify-between items-stretch px-[2rem] md:px-[4rem] py-[2rem] w-full"
+      style="opacity:0; transform: translateY(40px);"
+    >
+      <div class="flex flex-col justify-center items-start flex-1 footer-col" style="opacity:0; transform: translateY(30px);">
+        <div class="flex flex-col gap-[0.5rem] justify-center items-start flex-1">
+          <p
+            class="flex gap-[1rem] justify-center items-center uppercase text-(--text) font-semibold leading-5 text-sm"
+          >
+            <span
+              class="text-(--textAlt) bg-(--bgBlue) rounded-full w-3 h-3 footer-icon"
+              data-lucide="circle"
+              style="opacity:0; transform: translateY(10px) scale(0.9);"
+            ></span>
+            Let's work together
+          </p>
+          <h2 class="text-(--textBold) text-4xl font-bold uppercase">
+            have a project <br />
+            in mind?
+          </h2>
+          <p class="text-sm font-normal text-(--textQuatro)">
+            I'm currently avaliable for new projects. <br />
+            let's create something amazing together!
+          </p>
+        </div>
+      </div>
+      <div
+        class="flex flex-col justify-center items-start gap-[1.5rem] pl-[2rem] border-l border-(--borderTres) flex-1 footer-col"
+        style="opacity:0; transform: translateY(30px);"
+      >
+        <p class="text-sm font-normal text-(--text) flex justify-center items-center">
+          <span data-lucide="mail" class="text-(--text) w-6 h-6 mr-[2rem] footer-icon" style="opacity:0; transform: translateY(10px) scale(0.9);"></span>
+          hello@parabolicaxit.com
+        </p>
+        <p class="text-sm font-normal text-(--text) flex justify-center items-center">
+          <span data-lucide="send" class="text-(--text) w-6 h-6 mr-[2rem] footer-icon" style="opacity:0; transform: translateY(10px) scale(0.9);"></span>
+          @parabolicaxitarindodovsync
+        </p>
+        <p class="text-sm font-normal text-(--text) flex justify-center items-center">
+          <span data-lucide="map-pin" class="text-(--text) w-6 h-6 mr-[2rem] footer-icon" style="opacity:0; transform: translateY(10px) scale(0.9);"></span> América do Sul
+        </p>
+      </div>
+      <div class="bg-(--bgBlue) px-8 py-8 flex justify-center items-center flex-1 relative footer-col" style="opacity:0; transform: translateY(30px);">
+        <span
+          data-lucide="arrow-up-right"
+          class="absolute text-(--textTres) h-8 w-8 top-2 right-2 md:top-6 md:right-6 footer-icon"
+          style="opacity:0; transform: translateY(10px) scale(0.9);"
+        ></span>
+        <p class="text-2xl text-(--textTres) font-bold border-b border-(--borderQuatro) uppercase">
+          let's create <br />
+          something great
+        </p>
+      </div>
+    </footer>
+    <script src="https://unpkg.com/lenis@1.3.25/dist/lenis.min.js"></script>
+    <script src="script.js"></script>
+    <script src="animation.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>
